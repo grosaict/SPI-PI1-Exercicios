@@ -1,0 +1,122 @@
+<script type="text/javascript" charset="utf-8" lang="pt-br">
+
+	/*	exemplo slide 14*/
+
+	/*var i = window.prompt('Digite um número');
+	var s = window.prompt('Digite seu nome');
+	document.write('Oi, '+ s + '<br/><br/>');
+	document.write('Você digitou ' + i);*/
+
+	/*	1. Escrever um programa que recebe um número entre 1 e 9 e imprime a tabuada desse número.*/
+
+	function ex1(){
+		var i = window.prompt('Digite um número entre 1 e 9');
+		document.write('A tabuada de ' + i + ' é:<br/>');
+		for (var j = 0; j < 10; j++) {
+			document.write( i + ' x &nbsp' + (j+1) +' = ' + i*(j+1) + '<br/>');
+		}
+	}
+
+	/*	2. Escrever um programa que recebe um número e o divide sucessivamente por 2, até que o resultado da divisão seja menor
+		que 2. Imprimir o número lido e cada resultado da divisão.*/
+
+	function ex2(){
+		var nro = window.prompt('Digite um número: ');
+		document.write('O número digitado foi: ' + nro + '<br/>');
+		document.write('Abaixo sua divisão por 2 <br/>');
+		for (var i = 0; nro > 2; i++) {
+			nro = nro / 2;
+			document.write( nro + '<br/>');
+		}
+	}
+
+	/*	3. Escrever um programa que recebe 2 números que correspondem aos dois catetos de um triângulo retângulo e calcular
+		a hipotenusa desse triângulo.*/
+
+	function ex3(){
+		var cat1 = window.prompt('Digite o valor do cateto 1: ');
+		var cat2 = window.prompt('Digite o valor do cateto 2: ');
+		document.write('O valor da hipotenusa é: ' + (Math.sqrt((cat1*cat1)+(cat2*cat2))));
+	}
+
+	/*	4. Escrever um programa que recebe uma string e verifica se essa string é um palíndromo. (Dica: retire os espaços da string)*/
+
+	function ex4(){
+		var sentenca = window.prompt('Digite uma frase qualquer: ');
+		document.write('A frase informada foi: ' +sentenca+' com ' + sentenca.length + ' caracteres<br/>');
+		sentenca = sentenca.replace(/\s/g, '');
+		document.write('Retirando os espaços fica: ' +sentenca);
+		j = sentenca.length-1;
+		msg = 'A frase é um palíndromo!!!';
+		for (var i = 0; i <= (sentenca.length/2); i++) {
+			if (sentenca[i] == sentenca[j]){
+				j--;
+			}else{
+				i = sentenca.length/2;
+				msg = 'A frase não é um palíndromo!!!';
+			}
+		}
+		document.write('</br>' + msg);
+	}
+
+	/*	5. Escrever um programa que recebe 10 números e os armazena em um array. Após, o programa recebe um número entre 1 e 10 e deve
+		imprimir o número que está nessa posição dentro do array. O programa encerra quando o índice pesquisado for -1.*/
+
+	function ex5(){
+		var nro = {};
+		document.write('Informe uma sequência de 10 números!');
+		for (var i = 1; i <= 10; i++) {
+			nro[i] = window.prompt(i+'º nro: ');
+		}
+		document.write('<br/>Os números informados foram: ');
+		for (var i = 1; i <= 10; i++) {
+			document.write(nro[i]+' ');
+		}
+		document.write('<br/>');
+		do{
+			var indice = window.prompt('Informe um valor de 1 a 10 para saber qual o enésimo nro no vetor: ');
+		}while(!(indice >= 1 && indice <= 10));
+		document.write('O número informado na posição '+indice+' é '+nro[indice]);
+	}
+
+	/*	6. Escrever um programa que recebe 10 inteiros e os armazena em um array. Após, calcula e imprime a média dos valores inseridos e
+		a soma desses valores.*/
+
+	function ex6(){
+		var nro = {};
+		var soma = 0;
+		document.write('Informe uma sequência de 10 números!');
+		for (var i = 1; i <= 10; i++) {
+			nro[i] = window.prompt(i+'° nro: ');
+		}
+		document.write('<br/>Os números informados foram: ');
+		for (var i = 1; i <= 10; i++) {
+			document.write(nro[i]+' ');
+			soma += parseFloat(nro[i]);
+		}
+		var media = parseFloat(soma/10)
+		document.write('<br/>A soma deles é '+soma+' e sua média é '+media);
+	}
+
+	/*	7. Escrever um programa que recebe 3 nomes de pessoas e os armazena em um array. Após o programa recebe um número e imprime cada
+		um dos nomes essa quantidade de vezes.*/
+
+	function ex7(){
+		var nome = {};
+		var qtd = 0;
+		document.write('Informe três nomes de pessoas!');
+		for (var i = 1; i <= 3; i++) {
+			nome[i] = window.prompt(i+'a pessoa: ');
+		}
+		document.write('<br/>');
+		qtd = window.prompt('Informa a quantidade de vezes que você quer apresentá-las: ');
+		for (var i = 1; i <= qtd; i++) {
+			document.write('<br/>');
+			document.write(nome[1]+' '+nome[2]+' '+nome[3]);
+		}
+		document.write('<br/>Fim da lista!!');
+	}
+
+	ex7();
+
+</script>

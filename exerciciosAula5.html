@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+	<head>
+		<meta charset="UTF-8">
+	</head>
+		<!--	ENUNCIADO DA TAREFA
+			1. 	Criar um formulário com os seguintes campos:
+					Nome (string)
+					Sexo (opções M, F ou GNB)
+					Curso (3 opções de curso em lista)
+					Checkbox com a expressão 'Declaro que sou um(a) aluno(a)'
+					Botão <Enviar>
+			2. 	Criar uma página que receba os dados do formulário e os exiba.
+			3. 	Criar um script para validar que todos os campos do formulário sejam preenchidos. -->
+	<body>
+		<form name="exerciciosAula5" action="exerciciosAula5.php" method="post" onsubmit="return ValidaPreenchimento()">
+			<fieldset>
+				<legend>Dados do(a) Aluno(a)</legend>
+				<label for="nome">Nome Completo</label>
+				<input type="text" name="nome" id="nome" placeholder="[campo obrigatório]" autofocus required>
+				<br/>
+				<label for="sexo">Sexo</label>
+				<input type="radio" name="sexo" id="sexo1" value="Masculino" required>
+				<label for="sexo1">Masculino</label>
+				<input type="radio" name="sexo" id="sexo2" value="Feminino" >
+				<label for="sexo2">Feminino</label>
+				<input type="radio" name="sexo" id="sexo3" value="GNB" >
+				<label for="sexo3">GNB</label>
+				<br/>
+				<label for="curso">Curso</label>
+				<select name="curso" id="curso" required>
+					<option value="0"></option>
+					<option value="1"> 	Análise e Desenvolvimento de Sistemas	</option>
+					<option	value="2">	Redes de Computadores					</option>
+					<option	value="3">	Sistemas para Internet					</option>
+				</select>
+				<br/>
+				<input type="checkbox" name="declaracao" id="declaracao" value="01" required>
+				<label for="declaracao">Declaro que sou um(a) aluno(a)</label>
+				<br/>
+				<input type="submit" name="enviar" id="env" value="Enviar">
+				<input type="reset" name="limpar" id="limp" value="Limpar">
+			</fieldset>
+		</form>
+
+		<script type="text/javascript">
+			function ValidaPreenchimento() {
+				var nome		= document.getElementById('nome');
+				var sexo1		= document.getElementById('sexo1');
+				var sexo2		= document.getElementById('sexo2');
+				var sexo3		= document.getElementById('sexo3');
+				var curso		= document.getElementById('curso');
+				var declaracao	= document.getElementById('declaracao');
+
+				if((nome.value == '') || (!sexo1.checked && !sexo2.checked && !sexo3.checked) || (curso.value == "0") || (!declaracao.checked)) {
+					alert('Preencha todos os campos!');
+					return false;
+				}else{
+					return true;
+				}
+			}
+		</script>
+	</body>
+</html>
