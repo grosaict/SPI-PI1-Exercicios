@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+	<head>
+		<meta charset="UTF-8">
+	</head>
+	<body>
+		<!--	1.Escrever um programa que inicia uma sessão e escreve seu número de matrícula no índice ‘id’ do array de sessão (Dica: não esquecer de iniciar a sessão!). -->
+
+		<form name="exerciciosAula6" action="exerciciosAula6(sessao1a5).php" method="post" onsubmit="return ValidaID()">
+			<label for="id">Número de Matrícula</label>
+			<input type="text" name="id" id="id" placeholder="[não utilize pontuação]" autofocus>
+			<input type="submit" name="enviar" id="env" value="Enviar">
+		</form>
+
+		<!--	3.Alterar o programa anterior para verificar, antes de exibir a mensagem, se existe um dado salvo no índice ‘id’ do array de sessão. Se existir, imprimir a mensagem. Senão, imprimir “Não há sessão iniciada”. -->
+
+		<script type="text/javascript">
+			function ValidaID() {
+				var id		= document.getElementById('id');
+				if(id.value == '') {
+					alert('Preencha sua matrícula!');
+					return false;
+				}else{
+					return true;
+				}
+			}
+		</script>
+	</body>
+</html>
