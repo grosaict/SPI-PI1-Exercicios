@@ -15,39 +15,46 @@ nav li {
 	display: inline;
 	margin: 5px;
 }
-a {
-	color: white;
-}
-a.ativo {
-	background-color: white;
-	color: black;
-}
 section {
 	background: orange;
 	float: left;
-	width: 30%;
+	width: 35%;
 	padding: 1rem;
 	box-sizing: border-box;
-	display: none;
 	/* Alternativa ao box-sizing
-	width: calc(70% - 2rem); */
-}
-section.ativa {
-	display: inherit;
+	width: calc(30% - 2rem); */
 }
 aside {
-	text-align: right;
 	background: cyan;
+	text-align: right;
 	float: right;
-	width: 70%;
+	width: 65%;
 	padding: 1rem;
 	box-sizing: border-box;
+	/* Alternativa ao box-sizing
+	width: calc(70% - 2rem); */
 }
 footer {
 	background: lightgreen;
 	padding: 1rem;
 	clear: both;
 }
+a {
+	color: white;
+}
 img {
 	max-width: 100%;
 }
+/* CSS para mostrar dinamicamente as coisas */
+section {
+	display: none;
+}
+section.ativa {
+	display: inherit;
+}
+a.ativo {
+	background-color: white;
+	color: black;
+}
+
+/* ver https://cssgridgarden.com/ */
