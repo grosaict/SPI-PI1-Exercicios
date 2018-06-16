@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+	<head>
+		<meta charset="UTF-8">
+		<link rel="stylesheet" type="text/css" href="jquery-ui/jquery-ui.min.css">
+	</head>
+		<!--	ENUNCIADO DA TAREFA
+			1. 	Criar um formulário com os seguintes campos:
+					Nome (string)
+					Sexo (opções M, F ou GNB)
+					Curso (3 opções de curso em lista)
+					Checkbox com a expressão 'Declaro que sou um(a) aluno(a)'
+					Botão <Enviar>
+			2. 	Criar uma página que receba os dados do formulário e os exiba.
+			3. 	Criar um script para validar que todos os campos do formulário sejam preenchidos. -->
+	<body>
+		<form name="exerciciosAula5" action="exercicioFormularioAula12.php" method="post" onsubmit="return ValidaPreenchimento()">
+			<fieldset>
+				<legend>Dados do(a) Aluno(a)</legend>
+				<label for="nome">Nome Completo</label>
+				<input type="text" name="nome" id="nome" placeholder="[campo obrigatório]" autofocus >
+				<br/>
+				<label for="sexo">Sexo</label>
+				<input type="radio" name="sexo" id="sexo1" value="Masculino" >
+				<label for="sexo1">Masculino</label>
+				<input type="radio" name="sexo" id="sexo2" value="Feminino" >
+				<label for="sexo2">Feminino</label>
+				<input type="radio" name="sexo" id="sexo3" value="GNB" >
+				<label for="sexo3">GNB</label>
+				<br/>
+				<label for="curso">Curso</label>
+				<input type="text" name="curso" id="curso" size="50">
+				<br/>
+				<input type="checkbox" name="declaracao" id="declaracao" value="01" >
+				<label for="declaracao">Declaro que sou um(a) aluno(a)</label>
+				<br/>
+				<label for="dataNasc">Data Nascimento</label>
+				<input type="text" name="dataNasc" id="dataNasc" >
+				<br/>
+				<input type="submit" name="enviar" id="env" value="Enviar">
+				<input type="reset" name="limpar" id="limp" value="Limpar">
+			</fieldset>
+		</form>
+
+		<div id="dialog" title="Basic dialog">
+			<p>Preencha todos os campos!</p>
+
+		</div>
+
+		<script src="jquery.min.js" type="text/javascript"></script>
+		<script src="jquery-ui/jquery-ui.min.js" type="text/javascript"></script>
+		<script type="text/javascript">
+			function ValidaPreenchimento() {
+				if(($('#nome').val() == '') || (!$('#sexo1').prop('checked') && !$('#sexo2').prop('checked') && !$('#sexo3').prop('checked'))
+					|| ($('#curso').val() == '0') || (!$('#declaracao').prop('checked'))) {
+					$("#dialog").dialog(open);
+					return false;
+				}else{
+					return true;
+				}
+			}
+			$(document).ready(function(){
+				var availableTags = [{Value: '1', label: "Análise e Desenvolvimento de Sistemas"},
+									 {Value: '2', label: "Redes de Computadores"},
+									 {Value: '3', label: "Sistemas para Internet"}];
+				$("#curso").autocomplete({source: availableTags});
+				$("#dataNasc").datepicker({	dateFormat: 'dd/mm/yy',
+											defaultDate: '01/01/1980',
+											changeMonth: 'true',
+											changeYear: 'true'});
+			});
+		</script>
+	</body>
+</html>

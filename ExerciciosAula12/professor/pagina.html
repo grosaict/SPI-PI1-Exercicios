@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf8"/>
+	<title>Divisões de conteúdos</title>
+	<link rel="stylesheet" type="text/css" href="estilo.css"/>
+</head>
+<body>
+	<header>
+		<h1>Meu Site</h1>
+		<nav>
+			<ul>
+				<li>
+				<a class="ativo" href="#" 
+						onclick="mudaSecao(this,'principal')">
+						Principal
+					</a>
+				</li>
+				<li>
+					<a href="#" 
+						onclick="mudaSecao(this,'pudim')">
+						Pudim
+					</a>
+				</li>
+				<li>
+					<a href="#"
+						onclick="mudaSecao(this,'oi')">
+						Oi
+					</a>
+				</li>
+			</ul>
+		</nav>
+	</header>
+	<main>
+		<section>
+			Clique em um menu
+		</section>
+		<aside>
+			Informação adicional
+		</aside>
+	</main>
+	<footer>
+		&copy; Senac FSPOA
+	</footer>
+<script type="text/javascript" src="/thiago/jquery.min.js"></script>
+<script type="text/javascript">
+	function mudaSecao(ancora, nome_arquivo) {
+		// remove classe do menu ativo
+		document.getElementsByClassName('ativo')[0].className='';
+		// adiciona classe no menu ativo
+		ancora.className = 'ativo';
+		// requisicao ajax
+		$('section').load(nome_arquivo + '.html');
+	}
+</script>
+</body>
+</html>
