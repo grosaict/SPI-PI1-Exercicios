@@ -1,11 +1,6 @@
 <html lang="pt-br">
 <meta charset="UTF-8">
 <?php
-	spl_autoload_register(
-		function ($nomeDaClasse) {
-			require_once __DIR__.'/../models/'.$nomeDaClasse.'.php';
-		}
-	);
 	if (isset($_SESSION['tamagotchi'])) {
 		$t = $_SESSION['tamagotchi'];
 		if (!$t->estaMorto()) {

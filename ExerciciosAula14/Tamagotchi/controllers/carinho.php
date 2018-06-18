@@ -9,7 +9,6 @@
 	session_start();
 	if (isset($_SESSION['tamagotchi'])) {
 		$_SESSION['tamagotchi']->fazerCarinho();
-		print("<a href='principal.php?r=/views/interagir'>Interagir novamente</a> <br/>");
 	} else {
 		print ("Não há Tamagotchi para fazer carinho!!!<br/>");
 		print("<a href='principal.php?r=/views/criar'>Criar um Tamagotchi</a> <br/>");

@@ -32,7 +32,7 @@ class Tamagotchi {
 	}
 	public function alimentar() {
 		if (!$this->estaMorto()){
-			print 'Tamagotchi comeu! Nham nham! <br/>';
+			print 'Tamagotchi comeu!<br/>';
 			$this->fome += 2;
 		}
 	}
